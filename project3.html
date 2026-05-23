@@ -1,19 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>Project 3</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project 3 - Program Kasir</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f6f8;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .kasir{
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            width:350px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin:10px 0;
+            font-size:16px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#0d57a1;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#083d74;
+        }
+
+        .hasil{
+            margin-top:20px;
+            background:#eef2f7;
+            padding:15px;
+            border-radius:10px;
+        }
+
+        .back{
+            display:block;
+            margin-top:20px;
+            text-align:center;
+            text-decoration:none;
+            color:white;
+            background:#333;
+            padding:10px;
+            border-radius:8px;
+        }
+
+    </style>
 </head>
 <body>
 
-<div class="card">
-  <h1>Project 3</h1>
-  <p>Website interaktif menggunakan JavaScript.</p>
+<div class="kasir">
 
-  <br>
+    <h1>Program Kasir</h1>
 
-  <a href="index.html">Kembali</a>
+    <input type="text" id="barang" placeholder="Nama barang">
+
+    <input type="number" id="harga" placeholder="Harga barang">
+
+    <input type="number" id="jumlah" placeholder="Jumlah beli">
+
+    <button onclick="hitungTotal()">
+        Hitung Total
+    </button>
+
+    <div class="hasil" id="hasil">
+        Total belanja akan muncul di sini.
+    </div>
+
+    <a href="index.html" class="back">Kembali</a>
+
 </div>
+
+<script>
+
+function hitungTotal(){
+
+    let barang = document.getElementById("barang").value;
+
+    let harga = parseInt(document.getElementById("harga").value);
+
+    let jumlah = parseInt(document.getElementById("jumlah").value);
+
+    let total = harga * jumlah;
+
+    document.getElementById("hasil").innerHTML = `
+        <b>Nama Barang:</b> ${barang} <br>
+        <b>Harga:</b> Rp ${harga} <br>
+        <b>Jumlah:</b> ${jumlah} <br>
+        <hr>
+        <b>Total:</b> Rp ${total}
+    `;
+}
+
+</script>
 
 </body>
 </html>
